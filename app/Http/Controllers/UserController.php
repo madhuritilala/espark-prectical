@@ -21,7 +21,7 @@ class UserController extends Controller
             'last_name' => 'required',
             'designation' => 'required',
             'address_1' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|max:255|unique:employees',
             'city' => 'required',
             'state' => 'required',
             'zipcode' => 'required',
@@ -29,13 +29,30 @@ class UserController extends Controller
             'relation_status' => 'required',
             'gender' => 'required',
             'phone' => 'required',
+            'course_name.*' => 'required',
+            'univercity.*' => 'required',
+            'passing_year.*' => 'required',
+            'percentage.*' => 'required',
+            "language" =>"required|in:1",
+            "technology" =>"required|in:1",
+            "type"=>"required",
+            'company_address.*' => 'required',
+            'exp_designation.*' => 'required',
+            'joining_date_from.*' => 'required',
+            'joining_date_to.*' => 'required',
+            'ref_name.*' => 'required',
+            'ref_phone.*' => 'required',
+            'ref_relation.*' => 'required',
+            'notice_period' => 'required',
+            'exp_ctc' => 'required',
+            'current_ctc' => 'required',
         ];
 
         $messages = [
             'first_name.required' => 'Please enter first name.',
             'last_name.required' => 'Please enter last name.',
-            'designation.required' => 'Please Enter designation.',
-            'address_1.required' => 'Please Enter Address.',
+            'designation.required' => 'Please enter designation.',
+            'address_1.required' => 'Please enter Address.',
             'email.required' => 'Please enter email.',
             'city.required' => 'Please enter city.',
             'state.required' => 'Please select state.',
@@ -44,13 +61,30 @@ class UserController extends Controller
             'gender.required' => 'Please select gender.',
             'phone.required' => 'Please enter phone.',
             'relation_status.required' => 'Please select relation_status.',
+            'course_name.*.required'=> "You need to add atleast one course name.",
+            'univercity.*.required'=> "You need to add atleast one univercity name.",
+            'passing_year.*.required'=> "You need to add atleast one passing year.",
+            'percentage.*.required'=> "You need to add atleast one percentage.",
+            "language.required" =>"please select language checkbox.",
+            "technology.required" =>"please select technology checkbox.",
+            "type.required" =>"please select sub tye of technology checkbox.",
+            'company_address.*.required'=> "You need to add atleast one company address.",
+            'exp_designation.*.required'=> "You need to add atleast one exp.designation.",
+            'joining_date_from.*.required'=> "You need to add atleast one joining date from.",
+            'joining_date_to.*.required'=> "You need to add atleast one joining date to.",
+            'ref_name.*.required'=> "You need to add atleast one referance of name.",
+            'ref_phone.*.required'=> "You need to add atleast one  referance of phone number.",
+            'ref_relation.*.required'=> "You need to add atleast one referance of relation.",
+            'notice_period.required' => 'Please enter notice period.',
+            'exp_ctc.required' => 'Please enter expected CTC.',
+            'current_ctc.required' => 'Please enter current CTC.',
         ];
 
         $request->validate($rules,$messages);
     }
 
     public function store(Request $request){
-       // $this->validation($request);
+        $this->validation($request);
         //dd($request->all());
         try{
             $requestArr = $request->all();

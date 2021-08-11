@@ -221,6 +221,7 @@
                         <td>SSC Detail</td>
                         <td>
                             <input type="text" size="25" name="course_name[]">
+
                         </td>
                         <td>
                             <input type="text" size="25" name="univercity[]">
@@ -277,6 +278,26 @@
                             <input type="text" size="25" name="percentage[]">
                         </td>
                     </tr>
+                    @error('course_name.*')
+                    <span class="invalid-feedback" role="alert" style="display:block">
+                        <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
+                    @error('univercity.*')
+                    <span class="invalid-feedback" role="alert" style="display:block">
+                        <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
+                    @error('passing_year.*')
+                    <span class="invalid-feedback" role="alert" style="display:block">
+                        <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
+                    @error('percentage.*')
+                    <span class="invalid-feedback" role="alert" style="display:block">
+                        <strong>{{$message}}</strong>
+                    </span>
+                    @enderror
                 </table>
             </div>
 
@@ -336,6 +357,26 @@
                         </td>
                     </tr>
                 </table>
+                @error('company_address.*')
+                <span class="invalid-feedback" role="alert" style="display:block">
+                    <strong>{{$message}}</strong>
+                </span>
+                @enderror
+                @error('exp_designation.*')
+                <span class="invalid-feedback" role="alert" style="display:block">
+                    <strong>{{$message}}</strong>
+                </span>
+                @enderror
+                @error('joining_date_from.*')
+                <span class="invalid-feedback" role="alert" style="display:block">
+                    <strong>{{$message}}</strong>
+                </span>
+                @enderror
+                @error('joining_date_to.*')
+                <span class="invalid-feedback" role="alert" style="display:block">
+                    <strong>{{$message}}</strong>
+                </span>
+                @enderror
             </div>
         <!-- Laungage Details -->
         <div id="address-details">
@@ -388,6 +429,11 @@
                         </td>
                     </tr>
                 </table>
+                @error('language')
+                <span class="invalid-feedback" role="alert" style="display:block">
+                    <strong>{{$message}}</strong>
+                </span>
+                @enderror
                 <br><br>
             </div>
 
@@ -434,28 +480,38 @@
                             <input type="checkbox" value="beginer" name="type[]">Beginer
                         </td>
                         <td>
-                            <input type="checkbox" value="mideator" name="technology[]">Mideator
+                            <input type="checkbox" value="mideator" name="type[]">Mideator
                         </td>
                         <td>
-                            <input type="checkbox" value="expert" name="technology[]">Expert
+                            <input type="checkbox" value="expert" name="type[]">Expert
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2"></td>
                         <td>
-                            <input type="checkbox" value="oracle" name="technology">Oracle
+                            <input type="checkbox" value="oracle" name="technology[]">Oracle
                         </td>
                         <td>
                             <input type="checkbox" value="beginer" name="type[]">Beginer
                         </td>
                         <td>
-                            <input type="checkbox" value="mideator" name="technology[]">Mideator
+                            <input type="checkbox" value="mideator" name="type[]">Mideator
                         </td>
                         <td>
-                            <input type="checkbox" value="expert" name="technology[]">Expert
+                            <input type="checkbox" value="expert" name="type[]">Expert
                         </td>
                     </tr>
                 </table>
+                @error('technology')
+                <span class="invalid-feedback" role="alert" style="display:block">
+                    <strong>{{$message}}</strong>
+                </span>
+                @enderror
+                @error('type')
+                <span class="invalid-feedback" role="alert" style="display:block">
+                    <strong>{{$message}}</strong>
+                </span>
+                @enderror
             </div>
 
 		<!-- Other Details -->
@@ -490,7 +546,22 @@
 						<input type="text" placeholder="Relation" size="25" name="ref_relation[]">
 					</td>
 				</tr>
-			</table>
+            </table>
+            @error('ref_name.*')
+            <span class="invalid-feedback" role="alert" style="display:block">
+                <strong>{{$message}}</strong>
+            </span>
+            @enderror
+            @error('ref_phone.*')
+            <span class="invalid-feedback" role="alert" style="display:block">
+                <strong>{{$message}}</strong>
+            </span>
+            @enderror
+            @error('ref_relation.*')
+            <span class="invalid-feedback" role="alert" style="display:block">
+                <strong>{{$message}}</strong>
+            </span>
+            @enderror
         </div>
         <div id="preferance-details">
             <h2>Preferance Detail</h2>
@@ -500,14 +571,29 @@
                         <td>
                             <input type="text" placeholder="Notice Period" size="25" name="notice_period">
                         </td>
+                        @error('notice_period')
+                        <span class="invalid-feedback" role="alert" style="display:block">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                         <td>Expacted CTC</td>
                         <td>
                             <input type="text" placeholder="Expacted CTC" size="25" name="exp_ctc">
                         </td>
+                        @error('exp_ctc')
+                        <span class="invalid-feedback" role="alert" style="display:block">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                         <td>Current CTC</td>
                         <td>
                             <input type="text" placeholder="Current CTC" size="25" name="current_ctc">
                         </td>
+                        @error('current_ctc')
+                        <span class="invalid-feedback" role="alert" style="display:block">
+                            <strong>{{$message}}</strong>
+                        </span>
+                        @enderror
                     </tr>
                     <tr>
                         <td colspan="">Preferance Location</td>
